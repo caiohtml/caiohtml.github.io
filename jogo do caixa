@@ -1,0 +1,95 @@
+var img3
+var img2
+var img 
+var x = 100; 
+var y = 105;
+var opcao = 1;
+var tela= 0;
+function setup() {
+  createCanvas(400, 400);
+
+}
+
+
+function draw() {
+  background(img);
+  
+  if(tela==0){
+menu()
+  }
+  if(tela==1){
+    fase1()
+  }
+  if(tela==2){
+    instrucoes()
+}
+  if(tela==3){
+    creditos()
+  }
+}
+
+function preload() {
+  img = loadImage('tales.jpg');
+  img2 = loadImage('caixa2.jpg');
+  img3 = loadImage('caixa.jpg');
+}
+ function menu(){
+   background(img2);
+   fill(250,250,0);
+   rect(x,y,180,50);
+  fill(0)
+textSize(40);
+text('Jogo do Caixa',80,60);
+textSize(30);
+text('jogar', 150,140);
+textSize(30);
+text('instruções', 135, 200);
+textSize(30);
+text('creditos', 140,260)
+  } 
+function fase1(){
+  fill(250);
+  rect(240, 310,140,40);
+  rect(240, 220,140,40);
+  rect(30, 310,140,40);
+  rect(30, 220,140,40);
+  textSize(26);
+  fill(0);
+text('Primeiro serviço',110,30);
+  textSize(15);
+text('Um cliente trouxe para o caixa,sua feira, ele tinha um ',30,50);
+text('cupom que dava 20% de desconto,o preço a se pagar',30,65);
+text('era de x e o cliente pagou z,quanto será o troco com o',30,80);
+text('desconto?',30,95);
+  fill(0,150,0);
+  textSize(15);
+text('troco:RS50,00',260,340);
+text('troco:RS25,00',260,250);
+text('troco:RS10,00',45,250);
+text('troco:RS20,00',45,340);
+}
+function instrucoes(){
+   background(0,150,150);
+  textSize(15)
+  text('ano:4 fundamental',60,40);
+
+}
+function creditos(){
+  
+    textSize(30)
+    text('ainda sem educador',mouseX,mouseY);
+  }
+function keyPressed(){
+if(key=="ArrowDown" && y<200){
+  y+=60
+  opcao+=1
+}
+  if(key=="ArrowUp" && y>140){
+    y-=60
+    opcao-=1
+}
+  if(key=="Enter"){
+  tela=opcao
+  }
+ 
+}
